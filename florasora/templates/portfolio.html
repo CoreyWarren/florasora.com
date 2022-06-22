@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+{% include 'blocks/block_changelog_comment.html' %}
+
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>FloraSora | Portfolio</title>
+
+    <meta name="description" content="FloraSora - Full-Stack Web Developer and Illustrator.">
+    <meta name="keywords" content="portfolio, florasora, django, artist, illustrator, raster artist">
+    <meta name="author" content="FloraSora and nK">
+
+    <link rel="icon" type="image/png" href="{% static 'assets/images/favicon.png' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- START: Styles -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i%7cWork+Sans:400,500,700" rel="stylesheet" type="text/css">
+
+    
+    <link rel="stylesheet" href="{% static 'assets/css/combined.css'%}">
+    <!-- assets/css/combined.css"> -->
+
+    <!-- END: Styles -->
+
+
+
+</head>
+
+
+<body>
+
+
+
+    <header class="nk-header nk-header-opaque">
+        <!--
+        START: Navbar
+    -->
+
+    
+        {% include 'blocks/block_page_nav.html'%}
+
+
+        <!-- END: Navbar -->
+
+    </header>
+
+
+
+
+
+        <!--
+        START: Navbar Mobile
+    -->
+
+        {% include 'blocks/block_navbar_mobile.html' %}
+
+
+    <!-- END: Navbar Mobile -->
+
+
+
+
+
+    <div class="nk-main">
+
+        {% include 'blocks/block_wave_top.html' %}
+
+
+
+        <div class="container">
+            <!-- START: Filter -->
+            <div class="nk-pagination nk-pagination-nobg nk-pagination-center">
+                <a class="filter-projects" href="#nk-toggle-filter">[Filter Projects]</a>
+            </div>
+            <ul class="nk-isotope-filter">
+                <li class="active" data-filter="*">All Works</li>
+                <li data-filter="Art">Illustrations</li>
+                <li data-filter="Code">Developer Projects</li>
+            </ul>
+            <!-- END: Filter -->
+
+            <!-- 
+            
+            How to embed python for dynamic page rendering: 
+                https://docs.djangoproject.com/en/4.0/intro/tutorial03/
+
+            -->
+            
+
+            <div class="nk-portfolio-list nk-isotope nk-isotope-3-cols">
+
+            {% for a in artworks %}
+
+                <div class="nk-isotope-item" data-filter="{{a.filter}}">
+                    <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1">
+                        <a href="{{a.id}}/single-artwork/" class="nk-portfolio-item-link"></a>
+                        <div class="nk-portfolio-item-image">
+                            {% if a.file %}
+                            <div style="background-image: url( {{ a.file.url }} );">
+                            
+                            </div>
+                            
+                            {% else %}
+                            <p>No file... woops.</p>
+
+                            {% endif %}
+
+                        </div>
+                        <div class="nk-portfolio-item-info nk-portfolio-item-info-center text-xs-center">
+                            <div>
+                                <h2 class="portfolio-item-title h3">{{a.title}}</h2>
+                                <div class="portfolio-item-category">{{a.category}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% empty %}
+            <h1>Woops, art projects did not render.</h1>
+            
+            {% endfor %}
+
+
+
+            <!-- CODE SECTION -->
+
+            {% for b in code_projects %}
+
+            <div class="nk-isotope-item" data-filter="{{b.filter}}">
+                <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1">
+                    <a href="{{b.id}}/single-code-project/" class="nk-portfolio-item-link"></a>
+                    <div class="nk-portfolio-item-image">
+                        {% if b.file %}
+
+                        <div style="background-image: url( {{ b.file.url }} );"></div>
+
+                        {% else %}
+
+                        <p>No file... woops.</p>
+
+                        {% endif %}
+                    </div>
+                    <div class="nk-portfolio-item-info nk-portfolio-item-info-center text-xs-center">
+                        <div>
+                            <h2 class="portfolio-item-title h3">{{b.title}}</h2>
+                            <div class="portfolio-item-category">{{b.category}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {% empty %}
+            <h1>Woops, code projects did not render.</h1>
+            
+            {% endfor %}
+
+
+
+                
+
+
+
+            
+
+            </div>
+
+
+
+            <!-- START: Pagination --><!--
+        <div class="nk-pagination nk-pagination-center">
+            <a href="#">Load More Works</a>
+        </div> -->
+        <!-- END: Pagination -->
+
+        
+        
+        </div>
+
+
+        {% include 'blocks/block_wave_bottom.html' %}
+
+
+        <!-- START: Footer -->
+        {% include 'blocks/block_footer.html' %}
+        <!-- END: Footer -->
+
+        <!-- START: Scripts -->
+
+        <!-- <script src="{% static 'assets/js/combined.js' %}"></script> -->
+    
+        <!-- END: Scripts -->
+</body>
+
+</html>

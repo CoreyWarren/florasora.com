@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+{% include 'blocks/block_changelog_comment.html' %}
+
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>FLORASORA | Project [{{this_artwork.id}}] View</title>
+
+    <meta name="description" content="Florasora Portfolio Single View">
+    <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
+    <meta name="author" content="FloraSora and nK">
+
+    <link rel="icon" type="image/png" href="{% static 'assets/images/favicon.png' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- START: Styles -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i%7cWork+Sans:400,500,700" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="{% static 'assets/css/combined.css'%}">
+
+    <!-- END: Styles -->
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+    <header class="nk-header nk-header-opaque">
+        
+        <!--
+        START: Navbar
+    -->
+
+    
+    {% include 'blocks/block_page_nav.html'%}
+
+
+    <!-- END: Navbar -->
+
+    </header>
+
+
+
+
+    <!--
+        START: Navbar Mobile
+    -->
+
+    {% include 'blocks/block_navbar_mobile.html' %}
+
+    <!-- END: Navbar Mobile -->
+
+
+    <div class="nk-main">
+
+        {% include 'blocks/block_wave_top.html' %}
+
+
+        <!-- START: Pagination -->
+        
+        {% include 'blocks/block_single-code_pagination.html' %}
+
+        <!-- END: Pagination -->
+
+
+        <div class="container">
+            <div class="nk-portfolio-single">
+
+                <div class="nk-gap-1 mb-1"></div>
+                <h1 class="nk-portfolio-title display-4">{{this_code_project.title}}</h1>
+                <div class="row vertical-gap">
+                    <div class="col-lg-6">
+                        <div class="nk-portfolio-info">
+                            <div class="nk-portfolio-text">
+                                <p>{{this_code_project.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <table class="nk-portfolio-details">
+                            <tr>
+                                <td>
+                                    <strong>Category:</strong>
+                                </td>
+                                <td>{{this_code_project.category}}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Date:</strong>
+                                </td>
+                                <td>{{this_code_project.date_post}}</td>
+                            </tr>
+                            <!--
+                            <tr>
+                                <td>
+                                    <strong>Share:</strong>
+                                </td>
+                                
+                                <td>
+                                    <a href="#" title="Share page on Facebook" data-share="facebook">Facebook</a>,
+                                    <a href="#" title="Share page on Twitter" data-share="twitter">Twitter</a>,
+                                    <a href="#" title="Share page on Pinterest" data-share="pinterest">Pinterest</a>
+                                </td>
+                                
+                            </tr>
+                            -->
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="nk-gap-1 mb-1"></div>
+
+                
+                <img class="nk-img-fit" src="{{this_code_project.file.url}}">
+
+                <div class="nk-gap-1 mb-1"></div>
+            </div>
+        </div>
+
+        
+
+        <!-- START: Pagination -->
+        
+        {% include 'blocks/block_single-code_pagination.html' %}
+
+        <!-- END: Pagination -->
+
+        {% include 'blocks/block_wave_bottom.html' %}
+
+
+        <!-- START: Footer -->
+        {% include 'blocks/block_footer.html' %}
+        <!-- END: Footer -->
+
+
+    </div>
+
+
+    <!-- START: Scripts -->
+
+    <!-- <script src="{% static 'assets/js/combined.js' %}"></script> -->
+    
+    <!-- END: Scripts -->
+
+
+</body>
+
+</html>

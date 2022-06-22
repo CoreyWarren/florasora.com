@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+{% include 'blocks/block_changelog_comment.html' %}
+
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>FloraSora | About Me</title>
+
+    <meta name="description" content="FloraSora - Full-Stack Web Developer and Illustrator.">
+    <meta name="keywords" content="portfolio, florasora, django, artist, illustrator, raster artist">
+    <meta name="author" content="FloraSora and nK">
+
+    <link rel="icon" type="image/png" href="{% static 'assets/images/favicon.png' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- START: Styles -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i%7cWork+Sans:400,500,700" rel="stylesheet" type="text/css">
+
+    
+    <link rel="stylesheet" href="{% static 'assets/css/combined.css'%}">
+    <!-- assets/css/combined.css"> -->
+
+    <!-- END: Styles -->
+
+
+
+</head>
+
+
+<body>
+
+
+
+    <header class="nk-header nk-header-opaque">
+        <!--
+        START: Navbar
+    -->
+
+    
+        {% include 'blocks/block_page_nav.html'%}
+
+
+        <!-- END: Navbar -->
+
+    </header>
+
+    {% include 'blocks/block_wave_top.html' %}
+
+    <div class="container">
+
+        <div class="nk-gap-2"></div>
+
+            <div style="font-size:24px; text-align: justify;">
+                <p>Hello, my name is Corey, and I am a growing Software Developer and Artist.</p>
+                <p>I am quite proud to call this my first fully operational Django project!
+                    That said, feel free to reach me via Github or LinkedIn.
+                    My skillset is as follows:
+                </p>
+
+
+                <div class="progress_bar">
+                    <span>Django <br>
+                        (1 Year)</span>
+                </div>
+
+                <div class="progress_bar">
+                    <span>Python <br>
+                        (4 Years)</span>
+                </div>
+
+                <div class="progress_bar">
+                    <span>C <br>
+                        (1 Year)</span>
+                </div>
+
+
+                <div class="progress_bar">
+                    <span>C++ <br>
+                        (1 Years)</span>
+                </div>
+
+                <div class="progress_bar">
+                    <span>Java <br>
+                        (1 Year)</span>
+                </div>
+
+                <div class="progress_bar">
+                    <span>C# 
+                        (3 Years)</span>
+                </div>
+
+		        <div class="progress_bar">
+                    <span>Customer Service <br>
+                        (4.5 Years)</span>
+                </div>
+
+                <div class="nk-gap-1"></div>
+
+                <p>I am familiar with relational databases, and have a Bachelor's Degree in Computer Science and Engineering.
+                    I look forward to connecting with you.</p>
+            
+            </div>
+    </div>
+
+        <!--
+        START: Navbar Mobile
+    -->
+
+        {% include 'blocks/block_navbar_mobile.html' %}
+
+
+    <!-- END: Navbar Mobile -->
+
+
+
+
+
+    {% include 'blocks/block_wave_bottom.html' %}
+
+    <!-- START: Footer -->
+    {% include 'blocks/block_footer.html' %}
+    <!-- END: Footer -->
+
+</body>
+
+</html>
