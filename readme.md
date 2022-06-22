@@ -29,7 +29,7 @@ STATICFILES_DIRS = (
 
 & winenv/Scripts/Activate.ps1
 ```
-> Yes, the "&" is necessary. Why? No freaking clue, but it just happened to run like that once and I don't know how else to get the **(winenv)** to run!
+> Yes, the "&" is necessary. 
 
 
 ```bash
