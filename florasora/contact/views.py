@@ -43,7 +43,10 @@ def contact(request, *args, **kwargs):
             message = "\n".join(body.values())
             recipient = form.cleaned_data['email_address']
             try:
-                send_mail(subject, message, host_email, [host_email], False) 
+                if("CrytoLor" in body.first_name | "CrytoLor" in body.last_name):
+                    pass
+                else:
+                    send_mail(subject, message, host_email, [host_email], False) 
             except BadHeaderError:
                 # context = context + {'error' : 'Invalid field data detected.'}
                 context['error'] = 'Invalid field data detected'
