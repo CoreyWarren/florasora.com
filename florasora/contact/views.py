@@ -44,7 +44,7 @@ def contact(request, *args, **kwargs):
             recipient = form.cleaned_data['email_address']
             try:
                 if("CrytoLor" in body.first_name | "CrytoLor" in body.last_name):
-                    pass
+                    return render(request, "contact.html", context)
                 else:
                     send_mail(subject, message, host_email, [host_email], False) 
             except BadHeaderError:
